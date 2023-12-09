@@ -1,0 +1,6 @@
+*
+!.gitignore
+!start.sh
+!plugins
+plugins/*
+!plugins/plugins.yml

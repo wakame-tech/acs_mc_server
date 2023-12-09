@@ -1,0 +1,10 @@
+plugins:
+  anyall:
+    version: latest
+    url: https://github.com/wakame-tech/spigot-plugin-anyall/releases/download/latest/anyall-1.0-SNAPSHOT-plugin.jar
+  notify-bot:
+    version: latest
+    url: https://github.com/wakame-tech/spigot-plugin-notify-bot/releases/download/latest/notify-bot-1.0-SNAPSHOT-plugin.jar
+  onlyup:
+    version: latest
+    url: https://github.com/wakame-tech/spigot-plugin-onlyup/releases/download/latest/onlyup-1.0-SNAPSHOT-plugin.jar
