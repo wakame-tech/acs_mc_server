@@ -9,12 +9,12 @@ pub struct DiscordWebHook {
 }
 
 impl DiscordWebHook {
-    pub fn new(name: &str) -> Result<Self> {
-        Ok(Self {
+    pub fn new(name: &str, url: &str) -> Self {
+        Self {
             client: reqwest::blocking::Client::new(),
             name: name.to_string(),
-            url: std::env::var("DISCORD_WEBHOOK_URL")?,
-        })
+            url: url.to_string(),
+        }
     }
 
     pub fn post_message(&self, content: String) -> Result<()> {

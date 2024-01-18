@@ -8,7 +8,6 @@ use std::{
     fs::{remove_file, File, OpenOptions},
     path::{Path, PathBuf},
 };
-
 mod webhook;
 
 #[derive(Debug, clap::Parser)]
@@ -63,14 +62,17 @@ fn main() -> Result<()> {
     let dir = plugin_path.parent().unwrap();
 
     let mut log = BufWriter::new(Vec::new());
-    let webhook = DiscordWebHook::new("minecraft")?;
 
     match args {
         Cli::List => list_plugins(&mut log, dir, &plugins_file)?,
         Cli::Install => install_plugins(&mut log, dir, &plugins_file)?,
     }
 
-    let content = String::from_utf8(log.into_inner()?)?;
-    webhook.post_message(content)?;
+    let webhook_url = std::env::var("DISCORD_WEBHOOK_URL")?;
+    if !webhook_url.is_empty() {
+        let webhook = DiscordWebHook::new("minecraft", &webhook_url);
+        let content = String::from_utf8(log.into_inner()?)?;
+        webhook.post_message(content)?;
+    }
     Ok(())
 }
