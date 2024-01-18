@@ -1,5 +1,6 @@
 *
 !.gitignore
+!compose.yaml
 !start.sh
 !plugins
 plugins/*

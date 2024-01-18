@@ -1,4 +1,12 @@
 # acs_mc_server
+## install plugins
+```
+cd spigot_plugin_manager
+cargo build --release
+cd ../minecraft/plugins
+../../spigot_plugin_manager/target/release/spigot_plugin_manager install
+```
+
 ## start
 
 ```bash
